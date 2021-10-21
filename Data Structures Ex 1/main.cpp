@@ -1,4 +1,4 @@
-//Aviad Klein 315552679
+//Aviad Klein
 //Data Structures B
 //Ex 1
 
