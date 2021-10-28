@@ -2,58 +2,58 @@
 #include<string>
 #include<list>
 #include<iostream>
-#include "volunteer.h"
+#include "Volunteer.h"
 
 using namespace std;
 
-class client
+class Client
 {
 public:
 	string name;
 	string address;
 	int phone;
-	list<volunteer> volunteers;
+	list<Volunteer> volunteers;
 
-	client() {};
-	client(string name_, string address_, int phone_);
-	~client() {};
-	void operator=(client& temp);
-	bool operator==(client& temp);
+	Client() {};
+	Client(string name_, string address_, int phone_);
+	~Client() {};
+	void operator=(Client& temp);
+	bool operator==(Client& temp);
 
-	friend ostream& operator<<(ostream& out, client& ob);
-	friend istream& operator>>(istream& in, client& ob);
+	friend ostream& operator<<(ostream& out, Client& ob);
+	friend istream& operator>>(istream& in, Client& ob);
 };
 //constructor
-client::client(string name_, string address_, int phone_)
+Client::Client(string name_, string address_, int phone_)
 {
 	name = name_;
 	address = address_;
 	phone = phone_;
 }
 // operator =
-void client::operator=(client& temp)
+void Client::operator=(Client& temp)
 {
 	this->name = temp.name;
 	this->address = temp.address;
 	this->phone = temp.phone;
 }
 //operator ==
-bool client::operator==(client& temp)
+bool Client::operator==(Client& temp)
 {
 	if (this->name == temp.name) return 1;
 	else return 0;
 }
 //operator cin
-istream& operator>>(istream& in, client& ob)
+istream& operator>>(istream& in, Client& ob)
 {
 	in >> ob.name >> ob.address >> ob.phone;
 	return in;
 }
 //operator out
-ostream& operator<<(ostream& out, client& ob)
+ostream& operator<<(ostream& out, Client& ob)
 {
 	out << ob.name << ob.address << ob.phone << "\n volunteers:\n";
-	for (list<volunteer>::iterator iter = ob.volunteers.begin(); iter != ob.volunteers.end(); iter++)
+	for (list<Volunteer>::iterator iter = ob.volunteers.begin(); iter != ob.volunteers.end(); iter++)
 		cout << (iter)->name <<endl;
 
 	return out;

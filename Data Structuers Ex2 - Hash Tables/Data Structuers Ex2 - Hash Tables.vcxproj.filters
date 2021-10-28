@@ -18,24 +18,30 @@
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Repository.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AbstractHashTable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="client.h">
+    <ClInclude Include="Client.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="volunteer.h">
+    <ClInclude Include="Volunteer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Item.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="volunteerHashTable.h">
+    <ClInclude Include="VolunteerHashTable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ClientHashTable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Repository.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,6 +1,8 @@
 #pragma once
 #include "Item.h"
 
+using namespace std;
+
 template<class T, class K>
 class AbstractHashTable {
 protected:

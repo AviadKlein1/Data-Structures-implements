@@ -1,15 +1,16 @@
 #pragma once
 
 #include "AbstractHashTable.h"
-#include "volunteer.h"
-#include "client.h"
+#include "Volunteer.h"
+#include "Client.h"
 #include<string>
 #include<iostream>
 
 using namespace std;
 
-class ClientHashTable :AbstractHashTable <client, int>
+class ClientHashTable :AbstractHashTable <Client, int>
 {
+public:
     ClientHashTable() { };
     ClientHashTable(int size) :AbstractHashTable(size) {};
     int h1(int k);

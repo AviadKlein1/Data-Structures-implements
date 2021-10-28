@@ -1,9 +1,9 @@
 #include <iostream>
 #include <string>
 #include <list>
-#include "client.h"
-#include "volunteer.h"
-#include "volunteerHashTable.h"
+#include "Client.h"
+#include "Volunteer.h"
+#include "Repository.h"
 
 
 using namespace std;
@@ -12,10 +12,10 @@ using namespace std;
 void main()
 {
 	char ch;
-	volunteer v;
-	client c;
-	list<volunteer*> lst;
-	HashTbls ht;
+	Volunteer v;
+	Client c;
+	list<Volunteer*> lst;
+	Repository ht;
 
 		cout << "Hash Tables\n";
 	do
