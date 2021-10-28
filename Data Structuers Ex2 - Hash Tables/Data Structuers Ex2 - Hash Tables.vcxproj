@@ -19,15 +19,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="client.cpp" />
-    <ClCompile Include="HashTbls.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="volunteer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="client.h" />
-    <ClInclude Include="HashTbls.h" />
+    <ClInclude Include="AbstractHashTable.h" />
+    <ClInclude Include="ClientHashTable.h" />
+    <ClInclude Include="Item.h" />
     <ClInclude Include="volunteer.h" />
+    <ClInclude Include="volunteerHashTable.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

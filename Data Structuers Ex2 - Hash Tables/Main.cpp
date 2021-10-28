@@ -1,14 +1,12 @@
 #include <iostream>
 #include <string>
 #include <list>
-#include "HashTbls.h"
 #include "client.h"
 #include "volunteer.h"
+#include "volunteerHashTable.h"
 
 
 using namespace std;
-
-///////
 
 
 void main()
