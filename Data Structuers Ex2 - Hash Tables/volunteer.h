@@ -14,7 +14,7 @@ public:
 	string name;
 	string address;
 	int phone;
-	int cli[10];
+	string cli[10];
 	int numOfCli = 0;
 
 	Volunteer() {};
