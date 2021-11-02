@@ -48,10 +48,9 @@ void Repository::delVolunteer(Volunteer v)
 
 void Repository::addVolunteerToClient(Volunteer v, Client c)
 {
-	volenteers->update(v.name, c.phone);
+	volenteers->update(v.name, clients->returnNameOfClient(c.phone));
 
 	//volunteers that help to client
-	
 	clients->update(c.phone, v.name);
 }
 

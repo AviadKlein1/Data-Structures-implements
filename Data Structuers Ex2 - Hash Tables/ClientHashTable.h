@@ -18,6 +18,7 @@ public:
     void print();
     void update(int phone, string nameOfVol);
     void printVol(int phone);
+    string returnNameOfClient(int phone);
 
 };
 //h1 func
@@ -63,4 +64,9 @@ void ClientHashTable::update(int phone, string nameOfVol)
         hashTable[index].data.vol[hashTable[index].data.numOfVol] = nameOfVol; //update the data
         hashTable[index].data.numOfVol++;
     }
+}
+string ClientHashTable::returnNameOfClient(int phone)
+{
+    int x = search(phone);
+    return hashTable[x].data.name;
 }
