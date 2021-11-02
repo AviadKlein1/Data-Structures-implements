@@ -1,4 +1,3 @@
-#pragma once
 
 #include "AbstractHashTable.h"
 #include "Volunteer.h"
@@ -8,14 +7,14 @@
 
 using namespace std;
 
-class ClientHashTable :AbstractHashTable <Client, int>
+class ClientHashTable :public AbstractHashTable <Client, int>
 {
 public:
     ClientHashTable() { };
     ClientHashTable(int size) :AbstractHashTable(size) {};
     int h1(int k);
     int h2(int k);
-    void startNewTable();
+    void resetTable();
     void print();
 
 };
@@ -28,4 +27,20 @@ int ClientHashTable::h1(int k) {
 int ClientHashTable::h2(int k)
 {
     return (k + 1) % lenghtHashTable;
+}
+
+void ClientHashTable::resetTable()
+{
+    for (int i = 0; i < lenghtHashTable; i++) { //resets the new places with empty condition
+        this->hashTable[i].flag = empty_;
+    }
+}
+void ClientHashTable::print()
+{
+    for (int i = 0; i < lenghtHashTable; i++) {
+        try {
+            if (hashTable[i].flag != empty_)cout << hashTable[i].data;
+        }
+        catch (...) {}
+    }
 }

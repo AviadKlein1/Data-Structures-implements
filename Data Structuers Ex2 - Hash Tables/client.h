@@ -1,8 +1,10 @@
+#pragma once
 #include "AbstractHashTable.h"
-#include<string>
-#include<list>
-#include<iostream>
-#include "Volunteer.h"
+#include <string>
+#include <list>
+#include <iostream>
+#include "Item.h"
+
 
 using namespace std;
 
@@ -12,7 +14,8 @@ public:
 	string name;
 	string address;
 	int phone;
-	list<Volunteer> volunteers;
+	string n;
+	list <string> volunteers;
 
 	Client() {};
 	Client(string name_, string address_, int phone_);
@@ -46,15 +49,20 @@ bool Client::operator==(Client& temp)
 //operator cin
 istream& operator>>(istream& in, Client& ob)
 {
-	in >> ob.name >> ob.address >> ob.phone;
+	cout << "please enter name, phone, address of client:\n";
+	in >> ob.name >> ob.phone >> ob.address;
 	return in;
 }
 //operator out
 ostream& operator<<(ostream& out, Client& ob)
 {
-	out << ob.name << ob.address << ob.phone << "\n volunteers:\n";
-	for (list<Volunteer>::iterator iter = ob.volunteers.begin(); iter != ob.volunteers.end(); iter++)
-		cout << (iter)->name <<endl;
-
+	out << ob.phone << ": client name: " << ob.name << " phone:" << ob.address << " address:" << ob.phone;
+	if (!(ob.volunteers.empty()))
+	{
+		cout << "helped by:";
+		for (list <string>::iterator iter = ob.volunteers.begin(); iter != ob.volunteers.end(); iter++)
+			cout << *iter << " ";
+	}
+	cout << endl;
 	return out;
 }
