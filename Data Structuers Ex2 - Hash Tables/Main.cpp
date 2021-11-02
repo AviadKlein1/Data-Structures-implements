@@ -1,4 +1,6 @@
-
+//Aviad Klein 315552679
+//Exercise 2
+//Data Bases 2
 
 #include <iostream>
 #include <string>
@@ -9,7 +11,7 @@
 
 using namespace std;
 
-void main()
+int main()
 {
 	char ch;
 	Volunteer v;
@@ -42,4 +44,5 @@ void main()
 		default: cout << "Error ";  break;
 		}
 	} while (ch != 'e');
+	return 0;
 }
