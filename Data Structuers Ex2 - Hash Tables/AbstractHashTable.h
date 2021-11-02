@@ -134,7 +134,6 @@ void AbstractHashTable<T, K>::update(T data, K key)
     {
         hashTable[index].data = data; //update the data
     }
-    throw "ERROR";
 }
 //bool - find
 template <class T, class K>

@@ -15,9 +15,9 @@ public:
     int h1(string k);
     int h2(string k);
     void resetTable();
-    void printS(string);
+    void printCli(string);
     void print();
-
+    void update(string name, int clientPhone);
 };
 //h1 func
 int VolunteerHashTable::h1(string k) {
@@ -43,5 +43,24 @@ void VolunteerHashTable::print()
             if (hashTable[i].flag != empty_)cout << hashTable[i].data;
         }
         catch (...) {}
+    }
+}
+void VolunteerHashTable::printCli(string name)
+{
+    int index = search(name);
+    int sum = hashTable[index].data.numOfCli;
+    cout << "The volunteers that helped to client " << name <<": ";
+    for (int i = 0; i < sum; i++)
+        cout << hashTable[index].data.cli[i] << " ";
+    cout << endl;
+}
+
+void VolunteerHashTable::update(string name, int clientPhone)
+{
+    int index = search(name); //finds the key place
+    if (index != -1)  //it was found
+    {
+        hashTable[index].data.cli[hashTable[index].data.numOfCli] = clientPhone; //update the data
+        hashTable[index].data.numOfCli++;
     }
 }

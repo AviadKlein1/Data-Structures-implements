@@ -14,8 +14,8 @@ public:
 	string name;
 	string address;
 	int phone;
-	string n;
-	list <string> volunteers;
+	string vol[10];
+	int numOfVol = 0;
 
 	Client() {};
 	Client(string name_, string address_, int phone_);
@@ -39,6 +39,9 @@ void Client::operator=(Client& temp)
 	this->name = temp.name;
 	this->address = temp.address;
 	this->phone = temp.phone;
+	this->numOfVol = temp.numOfVol;
+	for(int i=0; i<=numOfVol; i++)
+		this->vol[i] = temp.vol[i];
 }
 //operator ==
 bool Client::operator==(Client& temp)
@@ -56,12 +59,12 @@ istream& operator>>(istream& in, Client& ob)
 //operator out
 ostream& operator<<(ostream& out, Client& ob)
 {
-	out << ob.phone << ": client name: " << ob.name << " phone:" << ob.address << " address:" << ob.phone;
-	if (!(ob.volunteers.empty()))
+	out << ob.phone << ": client name: " << ob.name << " phone: " << ob.address << " address: " << ob.phone;
+	if(ob.numOfVol)
 	{
-		cout << "helped by:";
-		for (list <string>::iterator iter = ob.volunteers.begin(); iter != ob.volunteers.end(); iter++)
-			cout << *iter << " ";
+		cout << " helped by: ";
+		for (int i = 0; i < ob.numOfVol; i++)
+			cout << ob.vol[i] << " ";
 	}
 	cout << endl;
 	return out;
