@@ -57,7 +57,7 @@ void Repository::addVolunteerToClient(Volunteer v, Client c)
 
 void Repository::listOfVolunteers(Client c)
 {
-	clients->printVol(c.phone);
+	if (clients->find(c.phone)) clients->printVol(c.phone);
 }
 
 void Repository::listOfClients(Volunteer v)

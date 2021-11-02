@@ -25,8 +25,9 @@ void main()
 		cout << "c: New client" << endl;
 		cout << "l: Add a connection volunteer-client " << endl;
 		cout << "*: Print volunteers that helped a client " << endl;
-		cout << "i: Print clients that were helped by a voluneer " << endl;
+		cout << "i: Print clients that were helped by a volunteer " << endl;
 		cout << "p: Print hash tables" << endl;
+		cout << "e: Exit" << endl;
 		cin >> ch;
 		switch (ch)
 		{
