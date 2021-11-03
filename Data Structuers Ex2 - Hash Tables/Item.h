@@ -1,4 +1,5 @@
 #pragma once
+
 #include <iostream>
 
 enum state { empty_, full, deleted };

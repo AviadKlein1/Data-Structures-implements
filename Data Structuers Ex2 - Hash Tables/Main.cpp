@@ -1,3 +1,5 @@
+
+
 #include <iostream>
 #include <string>
 #include <list>
@@ -5,16 +7,13 @@
 #include "Volunteer.h"
 #include "Repository.h"
 
-
 using namespace std;
-
 
 void main()
 {
 	char ch;
 	Volunteer v;
 	Client c;
-	list<Volunteer*> lst;
 	Repository ht;
 
 		cout << "Hash Tables\n";
@@ -27,6 +26,7 @@ void main()
 		cout << "l: Add a connection volunteer-client " << endl;
 		cout << "*: Print volunteers that helped a client " << endl;
 		cout << "i: Print clients that were helped by a voluneer " << endl;
+		cout << "p: Print hash tables" << endl;
 		cin >> ch;
 		switch (ch)
 		{
@@ -36,6 +36,7 @@ void main()
 		case 'l': cout << "enter volunteer name and client phone ";  cin >> v.name >> c.phone; ht.addVolunteerToClient(v, c); break;
 		case '*': cout << "enter client phone ";  cin >> c.phone; ht.listOfVolunteers(c); break;
 		case 'i': cout << "enter volunteer name ";  cin >> v.name; ht.listOfClients(v); break;
+		case 'p': cout << "Volunteers:\n"; ht.volenteers->print(); cout << "Clients:\n"; ht.clients->print(); break;
 		case 'e':cout << "bye "; break;
 		default: cout << "Error ";  break;
 		}

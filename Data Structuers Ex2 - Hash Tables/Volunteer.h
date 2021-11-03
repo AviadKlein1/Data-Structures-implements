@@ -1,17 +1,21 @@
 #pragma once
 
 #include "AbstractHashTable.h"
-#include<string>
-#include<iostream>
+#include "Client.h"
+#include <string>
+#include <list>
+#include <iostream>
+
 using namespace std;
 
-class Volunteer
+class Volunteer 
 {
 public:
 	string name;
 	string address;
 	int phone;
-	string city;
+	//string city;
+	list <string> clients;
 
 	Volunteer() {};
 	Volunteer(string name_, string address_, int phone_, string city_);
@@ -28,7 +32,7 @@ Volunteer::Volunteer(string name_, string address_, int phone_, string city_)
 	name = name_;
 	address = address_;
 	phone = phone_;
-	city = city_;
+	//city = city_;
 }
 // operator =
 void Volunteer::operator=(Volunteer& temp)
@@ -36,7 +40,7 @@ void Volunteer::operator=(Volunteer& temp)
 	this->name = temp.name;
 	this->address = temp.address;
 	this->phone = temp.phone;
-	this->city = temp.city;
+	//this->city = temp.city;
 }
 //operator ==
 bool Volunteer::operator==(Volunteer& temp)
@@ -47,12 +51,18 @@ bool Volunteer::operator==(Volunteer& temp)
 //operator cin
 istream& operator>>(istream& in, Volunteer& ob)
 {
-	in >> ob.name >> ob.address >> ob.phone >> ob.city;
+	cout << "Enter volunteer name, phone, address:\n ";
+	in >> ob.name >> ob.phone >> ob.address; /*>> ob.city*/
 	return in;
 }
 //operator out
 ostream& operator<<(ostream& out, Volunteer& ob)
 {
-	out << ob.name << ob.address << ob.phone << ob.city;
+	out<< ob.name <<": volunteer name ="<< ob.name << " phone ="<< ob.phone <<" address =" << ob.address << endl;
+	if (!(ob.clients.empty()))
+	{
+		for (list<string>::iterator iter = ob.clients.begin(); iter != ob.clients.end(); iter++)
+			cout << *iter << endl;
+	}
 	return out;
 }

@@ -1,7 +1,6 @@
 #pragma once
 #include "Item.h"
-
-using namespace std;
+#include <list>
 
 template<class T, class K>
 class AbstractHashTable {
@@ -55,7 +54,6 @@ int nextPrime(int N) {
     }
     return prime;
 }
-
 //constructor
 template <class T, class K>
 AbstractHashTable <T, K>::AbstractHashTable(int size)
