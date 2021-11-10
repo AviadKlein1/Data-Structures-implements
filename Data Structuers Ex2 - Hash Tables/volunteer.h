@@ -1,58 +1,72 @@
 #pragma once
 
 #include "AbstractHashTable.h"
-#include<string>
-#include<iostream>
+#include "Client.h"
+#include <string>
+#include <list>
+#include <iostream>
+
 using namespace std;
 
-class volunteer
+class Volunteer
 {
 public:
 	string name;
 	string address;
 	int phone;
-	string city;
+	string cli[10];
+	int numOfCli = 0;
 
-	volunteer() {};
-	volunteer(string name_, string address_, int phone_, string city_);
-	~volunteer() {};
-	void operator=(volunteer& temp);
-	bool operator==(volunteer& temp);
+	Volunteer() {};
+	Volunteer(string name_, string address_, int phone_, string city_);
+	~Volunteer() {};
+	void operator=(Volunteer& temp);
+	bool operator==(Volunteer& temp);
 
-	friend ostream& operator<<(ostream& out, volunteer& ob); 
-	friend istream& operator>>(istream& in, volunteer& ob);	
+	friend ostream& operator<<(ostream& out, Volunteer& ob);
+	friend istream& operator>>(istream& in, Volunteer& ob);
 };
 //constructor
-volunteer::volunteer(string name_, string address_, int phone_, string city_)
+Volunteer::Volunteer(string name_, string address_, int phone_, string city_)
 {
 	name = name_;
 	address = address_;
 	phone = phone_;
-	city = city_;
+	//city = city_;
 }
 // operator =
-void volunteer::operator=(volunteer& temp)
+void Volunteer::operator=(Volunteer& temp)
 {
 	this->name = temp.name;
 	this->address = temp.address;
 	this->phone = temp.phone;
-	this->city = temp.city;
+	this->numOfCli = temp.numOfCli;
+	for (int i = 0; i <= numOfCli; i++)
+		this->cli[i] = temp.cli[i];
 }
 //operator ==
-bool volunteer::operator==(volunteer& temp)
+bool Volunteer::operator==(Volunteer& temp)
 {
 	if (this->name == temp.name) return 1;
 	else return 0;
 }
 //operator cin
-istream& operator>>(istream& in, volunteer& ob)
+istream& operator>>(istream& in, Volunteer& ob)
 {
-	in >> ob.name >> ob.address >> ob.phone >> ob.city;
+	cout << "Enter volunteer name phone address\n ";
+	in >> ob.name >> ob.phone >> ob.address;
 	return in;
 }
 //operator out
-ostream& operator<<(ostream& out, volunteer& ob)
+ostream& operator<<(ostream& out, Volunteer& ob)
 {
-	out << ob.name << ob.address << ob.phone << ob.city;
+	out << ob.name << ": volunteer name = " << ob.name << " phone = " << ob.phone << " address = " << ob.address;
+	/*if (ob.numOfCli)
+	{
+		cout << "helped by:";
+		for (int i = 0; i < ob.numOfCli; i++)
+			cout << ob.cli[i] << " ";
+	}*/
+	cout << endl;
 	return out;
 }
