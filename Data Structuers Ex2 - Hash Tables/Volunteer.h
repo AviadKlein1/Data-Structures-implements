@@ -53,7 +53,7 @@ bool Volunteer::operator==(Volunteer& temp)
 //operator cin
 istream& operator>>(istream& in, Volunteer& ob)
 {
-	cout << "Enter volunteer name, phone, address:\n ";
+	cout << "Enter volunteer name phone address\n ";
 	in >> ob.name >> ob.phone >> ob.address;
 	return in;
 }

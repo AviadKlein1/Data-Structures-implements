@@ -50,9 +50,10 @@ void ClientHashTable::print()
 void ClientHashTable::printVol(int phone)
 {
     int index = search(phone);
+    if (index == -1)
+        return;
     int sum = hashTable[index].data.numOfVol;
-    cout << "helped by:";
-    for (int i = 0; i <=sum; i++)
+    for (int i = 0; i <= sum; i++)
         cout << hashTable[index].data.vol[i] << " ";
     cout << endl;
 }
@@ -68,5 +69,8 @@ void ClientHashTable::update(int phone, string nameOfVol)
 string ClientHashTable::returnNameOfClient(int phone)
 {
     int x = search(phone);
-    return hashTable[x].data.name;
+    if (x == -1)
+        return "error";
+    else
+        return hashTable[x].data.name;
 }
