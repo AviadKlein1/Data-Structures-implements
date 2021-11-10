@@ -16,6 +16,9 @@ public:
     int h2(int k);
     void resetTable();
     void print();
+    void update(int phone, string nameOfVol);
+    void printVol(int phone);
+    string returnNameOfClient(int phone);
 
 };
 //h1 func
@@ -43,4 +46,31 @@ void ClientHashTable::print()
         }
         catch (...) {}
     }
+}
+void ClientHashTable::printVol(int phone)
+{
+    int index = search(phone);
+    if (index == -1)
+        return;
+    int sum = hashTable[index].data.numOfVol;
+    for (int i = 0; i <= sum; i++)
+        cout << hashTable[index].data.vol[i] << " ";
+    cout << endl;
+}
+void ClientHashTable::update(int phone, string nameOfVol)
+{
+    int index = search(phone); //finds the key place
+    if (index != -1)  //it was found
+    {
+        hashTable[index].data.vol[hashTable[index].data.numOfVol] = nameOfVol; //update the data
+        hashTable[index].data.numOfVol++;
+    }
+}
+string ClientHashTable::returnNameOfClient(int phone)
+{
+    int x = search(phone);
+    if (x == -1)
+        return "error";
+    else
+        return hashTable[x].data.name;
 }

@@ -1,6 +1,7 @@
 #pragma once
 #include "Item.h"
-#include <list>
+
+using namespace std;
 
 template<class T, class K>
 class AbstractHashTable {
@@ -54,6 +55,7 @@ int nextPrime(int N) {
     }
     return prime;
 }
+
 //constructor
 template <class T, class K>
 AbstractHashTable <T, K>::AbstractHashTable(int size)
@@ -118,9 +120,14 @@ template <class T, class K>
 void AbstractHashTable<T, K>::delete_(K k)
 {
     int index = search(k); //finds the key place
-    if (index != -1) { //it was found
+    if (index != -1)
+    { //it was found
         hashTable[index].flag = deleted;
         return;
+    }
+    else
+    {
+        cout << "ERROR" << endl;
     }
 }
 //update
@@ -132,7 +139,6 @@ void AbstractHashTable<T, K>::update(T data, K key)
     {
         hashTable[index].data = data; //update the data
     }
-    throw "ERROR";
 }
 //bool - find
 template <class T, class K>

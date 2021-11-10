@@ -8,14 +8,14 @@
 
 using namespace std;
 
-class Volunteer 
+class Volunteer
 {
 public:
 	string name;
 	string address;
 	int phone;
-	//string city;
-	list <string> clients;
+	string cli[10];
+	int numOfCli = 0;
 
 	Volunteer() {};
 	Volunteer(string name_, string address_, int phone_, string city_);
@@ -23,8 +23,8 @@ public:
 	void operator=(Volunteer& temp);
 	bool operator==(Volunteer& temp);
 
-	friend ostream& operator<<(ostream& out, Volunteer& ob); 
-	friend istream& operator>>(istream& in, Volunteer& ob);	
+	friend ostream& operator<<(ostream& out, Volunteer& ob);
+	friend istream& operator>>(istream& in, Volunteer& ob);
 };
 //constructor
 Volunteer::Volunteer(string name_, string address_, int phone_, string city_)
@@ -40,7 +40,9 @@ void Volunteer::operator=(Volunteer& temp)
 	this->name = temp.name;
 	this->address = temp.address;
 	this->phone = temp.phone;
-	//this->city = temp.city;
+	this->numOfCli = temp.numOfCli;
+	for (int i = 0; i <= numOfCli; i++)
+		this->cli[i] = temp.cli[i];
 }
 //operator ==
 bool Volunteer::operator==(Volunteer& temp)
@@ -51,18 +53,20 @@ bool Volunteer::operator==(Volunteer& temp)
 //operator cin
 istream& operator>>(istream& in, Volunteer& ob)
 {
-	cout << "Enter volunteer name, phone, address:\n ";
-	in >> ob.name >> ob.phone >> ob.address; /*>> ob.city*/
+	cout << "Enter volunteer name phone address\n ";
+	in >> ob.name >> ob.phone >> ob.address;
 	return in;
 }
 //operator out
 ostream& operator<<(ostream& out, Volunteer& ob)
 {
-	out<< ob.name <<": volunteer name ="<< ob.name << " phone ="<< ob.phone <<" address =" << ob.address << endl;
-	if (!(ob.clients.empty()))
+	out << ob.name << ": volunteer name = " << ob.name << " phone = " << ob.phone << " address = " << ob.address;
+	/*if (ob.numOfCli)
 	{
-		for (list<string>::iterator iter = ob.clients.begin(); iter != ob.clients.end(); iter++)
-			cout << *iter << endl;
-	}
+		cout << "helped by:";
+		for (int i = 0; i < ob.numOfCli; i++)
+			cout << ob.cli[i] << " ";
+	}*/
+	cout << endl;
 	return out;
 }

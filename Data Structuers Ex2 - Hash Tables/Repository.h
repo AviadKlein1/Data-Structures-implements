@@ -12,7 +12,7 @@ using namespace std;
 class Repository :public ClientHashTable, public VolunteerHashTable
 {
 public:
-	ClientHashTable* clients  = new ClientHashTable(100) ;
+	ClientHashTable* clients = new ClientHashTable(100);
 	VolunteerHashTable* volenteers = new VolunteerHashTable(100);
 
 	Repository();
@@ -48,30 +48,25 @@ void Repository::delVolunteer(Volunteer v)
 
 void Repository::addVolunteerToClient(Volunteer v, Client c)
 {
+	if (clients->returnNameOfClient(c.phone) == "error")
 	{
-		string vn = v.name;
-		string cn = c.name;
-		v.clients.push_back(vn);
-		c.volunteers.push_back(cn);
+		cout << "ERROR" << endl;
+		return;
 	}
+	volenteers->update(v.name, clients->returnNameOfClient(c.phone));
+	//volunteers that help to client
+	clients->update(c.phone, v.name);
 }
 
 void Repository::listOfVolunteers(Client c)
 {
-	cout << "The volunteers that helped to client " << c.name << ":";
-	int x  = clients->search(c.phone);
-
-	/*for (list<string>::iterator iter = c.volunteers.begin(); iter != c.volunteers.end(); iter++)
-		cout << iter << endl;*/
+	cout << "The volunteers that helped to client " << c.phone << ": ";
+	//if (clients->find(c.phone))
+	clients->printVol(c.phone);
 
 }
 
 void Repository::listOfClients(Volunteer v)
 {
-	cout << "The clients that were helped by volunteer " << v.name << ":";
-	for (list<string>::iterator iter = v.clients.begin(); iter != v.clients.end(); iter++)
-	cout << *iter << endl;
+	volenteers->printCli(v.name);
 }
-
-
-
