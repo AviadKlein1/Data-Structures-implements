@@ -48,25 +48,22 @@ void Repository::delVolunteer(Volunteer v)
 
 void Repository::addVolunteerToClient(Volunteer v, Client c)
 {
-	if (clients->returnNameOfClient(c.phone) == "error")
-	{
-		cout << "ERROR" << endl;
-		return;
-	}
 	volenteers->update(v.name, clients->returnNameOfClient(c.phone));
+
 	//volunteers that help to client
 	clients->update(c.phone, v.name);
 }
 
 void Repository::listOfVolunteers(Client c)
 {
-	cout << "The volunteers that helped to client " << c.phone << ": ";
-	//if (clients->find(c.phone))
-	clients->printVol(c.phone);
-
+	if (clients->find(c.phone)) clients->printVol(c.phone);
 }
 
 void Repository::listOfClients(Volunteer v)
 {
 	volenteers->printCli(v.name);
 }
+
+
+
+

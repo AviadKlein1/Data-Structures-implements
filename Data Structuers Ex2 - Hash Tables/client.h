@@ -40,7 +40,7 @@ void Client::operator=(Client& temp)
 	this->address = temp.address;
 	this->phone = temp.phone;
 	this->numOfVol = temp.numOfVol;
-	for (int i = 0; i <= numOfVol; i++)
+	for(int i=0; i<=numOfVol; i++)
 		this->vol[i] = temp.vol[i];
 }
 //operator ==
@@ -52,20 +52,15 @@ bool Client::operator==(Client& temp)
 //operator cin
 istream& operator>>(istream& in, Client& ob)
 {
-	cout << "please enter name and phone and address of client\n";
-	in >> ob.name >> ob.phone >> ob.address;
+	in >> ob.name >> ob.address >> ob.phone;
 	return in;
 }
 //operator out
 ostream& operator<<(ostream& out, Client& ob)
 {
-	out << ob.phone << ": client name: " << ob.name << " phone: " << ob.address << " address: " << ob.phone;
-	if (ob.numOfVol)
-	{
-		cout << " helped by: ";
-		for (int i = 0; i < ob.numOfVol; i++)
-			cout << ob.vol[i] << " ";
-	}
-	cout << endl;
+	out << ob.name << ob.address << ob.phone << "\n volunteers:\n";
+	for (list<Volunteer>::iterator iter = ob.volunteers.begin(); iter != ob.volunteers.end(); iter++)
+		cout << (iter)->name <<endl;
+
 	return out;
 }

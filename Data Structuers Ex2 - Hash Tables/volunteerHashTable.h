@@ -1,3 +1,4 @@
+
 #include "AbstractHashTable.h"
 #include "Volunteer.h"
 #include "Client.h"
@@ -28,45 +29,4 @@ int VolunteerHashTable::h1(string k)
 int VolunteerHashTable::h2(string k)
 {
     return (k.length() + 1) % lenghtHashTable;
-}
-void VolunteerHashTable::resetTable()
-{
-    for (int i = 0; i < lenghtHashTable; i++) //resets the new places with empty condition
-        this->hashTable[i].flag = empty_;
-}
-
-void VolunteerHashTable::print()
-{
-    for (int i = 0; i < lenghtHashTable; i++) {
-        try {
-            if (hashTable[i].flag != empty_)cout << hashTable[i].data;
-        }
-        catch (...) {}
-    }
-}
-void VolunteerHashTable::printCli(string name)
-{
-    int index = search(name);
-    if (index == -1)
-    {
-        cout << "ERROR" << endl;
-        return;
-    }
-    int sum = hashTable[index].data.numOfCli;
-    cout << "The clients that were helped by volunteer " << name << ": ";
-    for (int i = 0; i < sum; i++)
-        cout << hashTable[index].data.cli[i] << " ";
-    //cout << endl;
-}
-
-void VolunteerHashTable::update(string name, string client)
-{
-    int index = search(name); //finds the key place
-    if (index != -1)  //it was found
-    {
-        hashTable[index].data.cli[hashTable[index].data.numOfCli] = client; //update the data
-        hashTable[index].data.numOfCli++;
-    }
-    else
-        cout << "ERROR" << endl;
 }
